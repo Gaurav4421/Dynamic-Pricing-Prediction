@@ -158,10 +158,6 @@ The best-performing model is further tuned using **RandomizedSearchCV** before b
 
 ## 📈 Results
 
-Replace the table below with your actual results after training.
-
-## 📈 Results
-
 | Model | MAE | RMSE | R² |
 |------|----:|-----:|---:|
 | Linear Regression | 5.08 | 6.31 | 0.52 |
