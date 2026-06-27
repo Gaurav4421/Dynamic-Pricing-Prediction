@@ -183,7 +183,6 @@ The best-performing model is further tuned using **RandomizedSearchCV** before b
 * Include weather-related features.
 * Experiment with One-Hot Encoding.
 * Add traffic and route information.
-* Deploy the application online.
 
 ---
 
