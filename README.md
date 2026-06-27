@@ -193,8 +193,8 @@ Replace the table below with your actual results after training.
 
 **Your Name**
 
-* GitHub: https://github.com/yourusername
-* LinkedIn: https://linkedin.com/in/your-linkedin
+* GitHub: [https://github.com/Gaurav4421](https://github.com/Gaurav4421)
+* LinkedIn: [https://linkedin.com/in/your-linkedin](https://www.linkedin.com/in/gaurav-verma-00a524342/)
 
 ---
 
