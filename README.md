@@ -189,7 +189,7 @@ The best-performing model is further tuned using **RandomizedSearchCV** before b
 
 ## 👤 Author
 
-**Your Name**
+Gaurav Verma
 
 * GitHub: [https://github.com/Gaurav4421](https://github.com/Gaurav4421)
 * LinkedIn: [https://linkedin.com/in/your-linkedin](https://www.linkedin.com/in/gaurav-verma-00a524342/)
