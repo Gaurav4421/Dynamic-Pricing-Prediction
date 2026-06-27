@@ -1,117 +1,202 @@
-# 🚗 Dynamic Pricing Prediction
+# 🚖 Uber & Lyft Dynamic Pricing Predictor
 
-A machine learning project that predicts Uber and Lyft ride fares using historical ride data from Boston, MA. The project covers the complete workflow from data preprocessing and feature engineering to model training, evaluation, and deployment with Streamlit.
-
----
-
-## 📌 Problem Statement
-
-Ride prices on platforms like Uber and Lyft change dynamically based on factors such as distance, ride type, surge pricing, and time of day.
-
-The objective of this project is to build a regression model that can predict ride fares using these features.
+> **End-to-End Machine Learning Portfolio Project**
+> Predict Uber & Lyft ride fares using historical trip data from **Boston, MA** with an optimized **XGBoost** regression model and an interactive **Streamlit** web application.
 
 ---
 
-## 📦 Dataset
+## 🌐 Live Demo
 
-| Property | Details                          |
-| -------- | -------------------------------- |
-| Dataset  | Uber & Lyft Dataset – Boston, MA |
-| Source   | Kaggle                           |
-| Size     | ~693,000 rows × 57 columns       |
-| Target   | `price`                          |
+**🚀 Try the App:**
+https://dynamic-pricing-prediction-kngm5frdq8rcwzse2qiyry.streamlit.app/
+
+---
+
+## 📂 GitHub Repository
+
+https://github.com/Gaurav4421/Dynamic-Pricing-Prediction
+
+---
+
+# 📌 Project Overview
+
+Ride-hailing platforms such as **Uber** and **Lyft** use dynamic pricing that changes according to multiple factors including:
+
+* Distance
+* Ride type
+* Pickup & drop-off location
+* Time of day
+* Day of week
+* Surge pricing
+
+This project builds a complete machine learning pipeline that predicts ride fares using historical ride data from Boston.
+
+The project covers the entire ML lifecycle:
+
+* Data preprocessing
+* Feature engineering
+* Model training
+* Model evaluation
+* Hyperparameter tuning
+* Model serialization
+* Interactive deployment using Streamlit
+
+---
+
+# 📦 Dataset
+
+| Property        | Details                  |
+| --------------- | ------------------------ |
+| Dataset         | Uber & Lyft Ride Dataset |
+| Source          | Kaggle                   |
+| Location        | Boston, Massachusetts    |
+| Size            | 693,000+ rides           |
+| Raw Features    | 57                       |
+| Target Variable | `price`                  |
 
 ### Features Used
 
-* `cab_type`
-* `name`
-* `distance`
-* `surge_multiplier`
-* `source`
-* `destination`
-* `hour`
-* `day_of_week`
-* `is_rush_hour`
-* `is_weekend`
+* cab_type
+* ride_name
+* distance
+* surge_multiplier
+* pickup_location
+* destination
+* hour
+* day_of_week
+* is_rush_hour
+* is_weekend
+
+> **Note:** Predictions are generated in **USD ($)** because the model was trained exclusively on ride data collected in Boston, MA.
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 * Python
 * Pandas
 * NumPy
-* Matplotlib
-* Seaborn
 * Scikit-learn
 * XGBoost
+* Matplotlib
+* Seaborn
 * Joblib
 * Streamlit
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
 Dynamic-Pricing-Prediction/
 │
-├── data/
-├── notebooks/
-├── src/
-│   ├── preprocessing.py
-│   ├── feature_engineering.py
-│   ├── evaluate.py
-│   ├── train.py
-│   └── predict.py
+├── app.py
+├── train.py
+├── predict.py
+├── preprocessing.py
+├── feature_engineering.py
+├── evaluate.py
+├── requirements.txt
+├── README.md
 │
 ├── model/
-├── app.py
-├── requirements.txt
-└── README.md
+│   ├── best_model.pkl
+│   ├── feature_names.pkl
+│   └── label_encoders.pkl
+│
+└── data/
+    └── rideshare_kaggle.csv
 ```
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Installation
 
-Clone the repository
+## Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Dynamic-Pricing-Prediction.git
+git clone https://github.com/Gaurav4421/Dynamic-Pricing-Prediction.git
+
 cd Dynamic-Pricing-Prediction
 ```
 
-Create a virtual environment
+---
+
+## Create a virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Install dependencies
+Activate it
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### macOS / Linux
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+## Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Download the Kaggle dataset and place `rideshare_kaggle.csv` inside the `data/` folder.
+---
+
+## Download Dataset
+
+Download the **Uber & Lyft Boston Dataset** from Kaggle and place
+
+```text
+rideshare_kaggle.csv
+```
+
+inside the
+
+```text
+data/
+```
+
+folder.
 
 ---
 
-## ▶️ Run the Project
-
-### Run the notebook
+# ▶️ Train the Model
 
 ```bash
-jupyter notebook notebooks/dynamic_pricing.ipynb
+python train.py
 ```
 
-### Train the models
+Training automatically performs:
 
-```bash
-python src/train.py
+* Data preprocessing
+* Feature engineering
+* Multiple model training
+* Hyperparameter tuning
+* Best model selection
+* Model serialization
+
+Saved artifacts:
+
+```
+model/
+├── best_model.pkl
+├── feature_names.pkl
+└── label_encoders.pkl
 ```
 
-### Launch the Streamlit app
+---
+
+# ▶️ Launch the Application
 
 ```bash
 streamlit run app.py
@@ -119,82 +204,94 @@ streamlit run app.py
 
 ---
 
-## 🔄 Workflow
+# 🔄 Machine Learning Workflow
 
 ```text
-Raw Data
-    │
-    ▼
+Raw Dataset
+      │
+      ▼
 Data Cleaning
-    │
-    ▼
+      │
+      ▼
 Feature Engineering
-    │
-    ▼
+      │
+      ▼
 Train Multiple Models
-    │
-    ▼
-Hyperparameter Tuning
-    │
-    ▼
-Save Best Model
-    │
-    ▼
-Streamlit App
+      │
+      ▼
+Model Evaluation
+      │
+      ▼
+RandomizedSearchCV
+      │
+      ▼
+Best Model Saved
+      │
+      ▼
+Streamlit Deployment
 ```
 
 ---
 
-## 📊 Models Trained
+# 🤖 Models Compared
 
 * Linear Regression
 * Decision Tree
 * Random Forest
 * XGBoost
-
-The best-performing model is further tuned using **RandomizedSearchCV** before being saved.
-
----
-
-## 📈 Results
-
-| Model | MAE | RMSE | R² |
-|------|----:|-----:|---:|
-| Linear Regression | 5.08 | 6.31 | 0.52 |
-| Decision Tree | 1.10 | 1.65 | 0.97 |
-| Random Forest | 1.12 | 1.75 | 0.96 |
-| XGBoost | 1.08 | 1.61 | 0.97 |
-| **XGBoost (Tuned)** | **1.02** | **1.55** | **0.97** |
+* Tuned XGBoost (RandomizedSearchCV)
 
 ---
 
-## 💡 Key Takeaways
+# 📈 Model Performance
 
-* Compared four regression models.
-* XGBoost achieved the best overall performance.
-* Engineered time-based features improved prediction quality.
-* Built a reusable preprocessing and training pipeline.
-* Deployed the trained model using Streamlit.
-
----
-
-## 🔮 Future Improvements
-
-* Include weather-related features.
-* Experiment with One-Hot Encoding.
-* Add traffic and route information.
+| Model             |      MAE |     RMSE |       R² |
+| ----------------- | -------: | -------: | -------: |
+| Linear Regression |     5.08 |     6.31 |     0.52 |
+| Decision Tree     |     1.10 |     1.65 |     0.97 |
+| Random Forest     |     1.12 |     1.75 |     0.96 |
+| XGBoost           |     1.08 |     1.61 |     0.97 |
+| ⭐ Tuned XGBoost   | **1.02** | **1.55** | **0.97** |
 
 ---
 
-## 👤 Author
+# 💡 Key Highlights
 
-Gaurav Verma
-
-* GitHub: [https://github.com/Gaurav4421](https://github.com/Gaurav4421)
-* LinkedIn: [https://linkedin.com/in/your-linkedin](https://www.linkedin.com/in/gaurav-verma-00a524342/)
+* End-to-end Machine Learning project
+* 693K real-world ride records
+* Clean modular project structure
+* Feature engineering pipeline
+* Compared four regression algorithms
+* Hyperparameter tuning using RandomizedSearchCV
+* Saved reusable model artifacts with Joblib
+* Interactive Streamlit web application
+* Fully deployed to Streamlit Community Cloud
 
 ---
 
-## 📄 License
+# 🔮 Future Improvements
 
-This project is licensed under the MIT License.
+* Weather-aware fare prediction
+* Traffic congestion features
+* Route-aware distance calculation
+* One-Hot Encoding comparison
+* Continuous model retraining
+* API deployment using FastAPI
+
+---
+
+# 👨‍💻 Author
+
+**Gaurav Verma**
+
+🔗 GitHub
+https://github.com/Gaurav4421
+
+🔗 LinkedIn
+https://www.linkedin.com/in/YOUR-LINKEDIN-URL
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
