@@ -20,12 +20,17 @@ from preprocessing import run_preprocessing
 from feature_engineering import run_feature_engineering
 from evaluate import compute_metrics, print_results_table
 
-ROOT_DIR        = os.path.join(os.path.dirname(__file__), '..')
-DATA_PATH       = os.path.join(ROOT_DIR, 'data', 'rideshare_kaggle.csv')
-MODEL_DIR       = os.path.join(ROOT_DIR, 'model')
-MODEL_PATH      = os.path.join(MODEL_DIR, 'best_model.pkl')
-ENCODERS_PATH   = os.path.join(MODEL_DIR, 'label_encoders.pkl')
-FEAT_NAMES_PATH = os.path.join(MODEL_DIR, 'feature_names.pkl')
+DATA_PATH = "data/rideshare_kaggle.csv"
+
+ROOT_DIR = os.path.dirname(__file__)
+MODEL_DIR = os.path.join(ROOT_DIR, "model")
+
+# Create the model folder automatically if it doesn't exist
+os.makedirs(MODEL_DIR, exist_ok=True)
+
+MODEL_PATH = os.path.join(MODEL_DIR, "best_model.pkl")
+ENCODERS_PATH = os.path.join(MODEL_DIR, "label_encoders.pkl")
+FEAT_NAMES_PATH = os.path.join(MODEL_DIR, "feature_names.pkl")
 
 RANDOM_SEED = 42
 

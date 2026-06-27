@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import shap
 
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
@@ -100,33 +99,6 @@ def plot_model_comparison(results_df):
     plt.suptitle('Model Comparison Across All Metrics', fontsize=13, fontweight='bold')
     plt.tight_layout()
     plt.show()
-
-
-def plot_shap_summary(model, X_test, sample_size=500):
-    """
-    SHAP summary plot for the test set.
-    Uses TreeExplainer (faster than KernelExplainer for tree models).
-    Samples 500 rows by default to keep it fast.
-    """
-    X_sample = X_test.sample(min(sample_size, len(X_test)), random_state=42)
-
-    explainer   = shap.TreeExplainer(model)
-    shap_values = explainer.shap_values(X_sample)
-
-    print(f"[SHAP] Computing values for {len(X_sample)} samples...")
-    shap.summary_plot(shap_values, X_sample, show=True)
-
-
-def get_shap_values_for_row(model, row_df):
-    """
-    Returns SHAP values for a single row.
-    Used by the Streamlit app for per-prediction explanations.
-    """
-    explainer = shap.TreeExplainer(model)
-    shap_vals = explainer.shap_values(row_df)
-    base_val  = explainer.expected_value
-
-    return shap_vals[0], base_val
 
 
 if __name__ == '__main__':
