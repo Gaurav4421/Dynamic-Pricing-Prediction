@@ -160,13 +160,15 @@ The best-performing model is further tuned using **RandomizedSearchCV** before b
 
 Replace the table below with your actual results after training.
 
-| Model             | MAE  | RMSE | R²   |
-|------|
+## 📈 Results
+
+| Model | MAE | RMSE | R² |
+|------|----:|-----:|---:|
 | Linear Regression | 5.08 | 6.31 | 0.52 |
-| Decision Tree     | 1.10 | 1.65 | 0.97 |
-| Random Forest     | 1.12 | 1.75 | 0.96 |
-| XGBoost           | 1.08 | 1.61 | 0.97 |
-| XGBoost (Tuned)   | 1.02 | 1.55 | 0.97 |
+| Decision Tree | 1.10 | 1.65 | 0.97 |
+| Random Forest | 1.12 | 1.75 | 0.96 |
+| XGBoost | 1.08 | 1.61 | 0.97 |
+| **XGBoost (Tuned)** | **1.02** | **1.55** | **0.97** |
 
 ---
 
