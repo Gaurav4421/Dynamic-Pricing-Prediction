@@ -288,7 +288,7 @@ Streamlit Deployment
 https://github.com/Gaurav4421
 
 🔗 LinkedIn
-https://www.linkedin.com/in/YOUR-LINKEDIN-URL
+[https://www.linkedin.com/in/YOUR-LINKEDIN-URL](https://www.linkedin.com/in/gaurav-verma-00a524342/)
 
 ---
 
